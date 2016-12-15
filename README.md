@@ -1,2 +1,4 @@
 # wgu-c169
-Scripting and Programming - Applications performance assessment
+WGU IT Course C169 | Scripting and Programming Applications
+
+Student roster java performance assessment
