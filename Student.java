@@ -20,11 +20,11 @@ public class Student {
     
     //student constructor
     public Student(String studentId, String firstName, String lastName, String email, int age, int grade1, int grade2, int grade3) {
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
+        setStudentId(studentId);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setAge(age);
         setGrade1(grade1);
         setGrade2(grade2);
         setGrade3(grade3);
@@ -40,11 +40,11 @@ public class Student {
     }
     
     //firstName accessor & mutator
-    private String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    private void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }  
 
@@ -53,7 +53,7 @@ public class Student {
         return lastName;
     }
 
-    private void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -62,7 +62,7 @@ public class Student {
         return email;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -71,7 +71,7 @@ public class Student {
         return age;
     }
 
-    private void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -80,7 +80,7 @@ public class Student {
         return grades[0];
     }
 
-    private void setGrade1(int grade1) {
+    public void setGrade1(int grade1) {
         this.grades[0] = grade1;
     }
 
@@ -89,7 +89,7 @@ public class Student {
         return grades[1];
     }
 
-    private void setGrade2(int grade2) {
+    public void setGrade2(int grade2) {
        this.grades[1] = grade2;
     }
 
@@ -98,7 +98,7 @@ public class Student {
         return grades[2];
     }
 
-    private void setGrade3(int grade3) {
+    public void setGrade3(int grade3) {
         this.grades[2] = grade3;
     }
     
