@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Roster {
     
-    private static ArrayList<Student> students = new ArrayList<>();
+    static ArrayList<Student> aStudents = new ArrayList<>();
     
     //main method to run program
     public static void main(String[] args) {
@@ -47,14 +47,14 @@ public class Roster {
     //adding new student to roster
     public static void add(String studentId, String firstName, String lastName, String email, int age, int grade1, int grade2, int grade3) {
         Student student = new Student(studentId, firstName, lastName, email, age, grade1, grade2, grade3);
-        students.add(student);
+        aStudents.add(student);
     }
     
     //removing a student from roster
     public static void remove(String studentId) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getStudentId().equals(studentId)) {
-                students.remove(i);
+        for (int i = 0; i < aStudents.size(); i++) {
+            if (aStudents.get(i).getStudentId().equals(studentId)) {
+                aStudents.remove(i);
                 System.out.println("Student (" +studentId+ ") has been removed from the roster.");
                 return;
             }
@@ -64,7 +64,7 @@ public class Roster {
     
     //print the student array
     public static void printAll() {
-        for (Student student : students) {
+        for (Student student : aStudents) {
             student.print();
         }
     }
@@ -72,7 +72,7 @@ public class Roster {
     //print invalid email
     public static void printInvalidEmails() {
         String invalidEmail = "Email address invalid: ";
-        for (Student Student : students) {
+        for (Student Student : aStudents) {
             String emailsInRoster = Student.getEmail();
             if (!(emailsInRoster.contains("@")) || (emailsInRoster.contains(" ")) || !(emailsInRoster.contains("."))) {
                 System.out.println(invalidEmail + emailsInRoster);
@@ -82,7 +82,7 @@ public class Roster {
     
     //print student average grade
     public static void printAverageGrade(String studentId) {
-        for (Student student : students) {
+        for (Student student : aStudents) {
             if (student.getStudentId().equals(studentId)) {
                 double totalGrades = student.getGrade1() + student.getGrade2() + student.getGrade3();
                 double gradeAverage = totalGrades / 3;

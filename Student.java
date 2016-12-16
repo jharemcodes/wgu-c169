@@ -19,7 +19,8 @@ public class Student {
     int[] grades = new int[GRADES];
     
     //student constructor
-    public Student(String studentId, String firstName, String lastName, String email, int age, int grade1, int grade2, int grade3) {
+    public Student(String studentId, String firstName, String lastName, 
+            String email, int age, int grade1, int grade2, int grade3) {
         setStudentId(studentId);
         setFirstName(firstName);
         setLastName(lastName);
@@ -114,7 +115,8 @@ public class Student {
         int grade2 = getGrade2();
         int grade3 = getGrade3();
 
-        System.out.println("Student ID: " +studentId+tab+ " First name: " +firstName+tab+ " Last name: " +lastName+tab+
+        System.out.println("Student ID: " +studentId+tab+ " First name: "
+            +firstName+tab+ " Last name: " +lastName+tab+
             " Email: " +email+tab+ " Age: " +age);
     }
 }
