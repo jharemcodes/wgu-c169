@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Roster {
     
-    static ArrayList<Student> aStudents = new ArrayList<>();
+    static ArrayList<Student> students = new ArrayList<>();
     
-    //main method to run program
+    //main method of program
     public static void main(String[] args) {
         String [] students = {"1,John,Smith,John1989@gmail.com,20,88,79,59",
             "2,Suzan,Erickson, Erickson_1990@gmailcom,19,91,72,85",
@@ -20,41 +20,47 @@ public class Roster {
         
         //input split by comma
         for (int i = 0; i < students.length; i++) {
+            //parse string values
             String characters = students[i];
             String[] arrayVar = characters.split(",");
             String studentId = arrayVar[0];
             String firstName = arrayVar[1];
             String lastName = arrayVar[2];
             String email = arrayVar[3];
+            //parse int values
             int age = Integer.parseInt(arrayVar[4]);
             int grade1 = Integer.parseInt(arrayVar[5]);
             int grade2 = Integer.parseInt(arrayVar[6]);
             int grade3 = Integer.parseInt(arrayVar[7]);
             
-            //to add the student to the students array
+            //add student to the students array
             Roster.add(studentId, firstName, lastName, email, age, grade1, grade2, grade3);
         }
         
+        //print all student info
         Roster.printAll();
+        //print invalid emails in roster
         Roster.printInvalidEmails();
-        //loop through the ArrayList and for each element:
+        //print average grade 
         Roster.printAverageGrade("1");
+        //remove student from roster
         Roster.remove("3");
+        //remove same student, expected not found
         Roster.remove("3");
-        //expected: this should print a message saying such a student with this ID was not found.
+        
     }
     
     //adding new student to roster
     public static void add(String studentId, String firstName, String lastName, String email, int age, int grade1, int grade2, int grade3) {
         Student student = new Student(studentId, firstName, lastName, email, age, grade1, grade2, grade3);
-        aStudents.add(student);
+        students.add(student);
     }
     
-    //removing a student from roster
+    //remove a student from roster
     public static void remove(String studentId) {
-        for (int i = 0; i < aStudents.size(); i++) {
-            if (aStudents.get(i).getStudentId().equals(studentId)) {
-                aStudents.remove(i);
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getStudentId().equals(studentId)) {
+                students.remove(i);
                 System.out.println("Student (" +studentId+ ") has been removed from the roster.");
                 return;
             }
@@ -64,7 +70,7 @@ public class Roster {
     
     //print the student array
     public static void printAll() {
-        for (Student student : aStudents) {
+        for (Student student : students) {
             student.print();
         }
     }
@@ -72,7 +78,7 @@ public class Roster {
     //print invalid email
     public static void printInvalidEmails() {
         String invalidEmail = "Email address invalid: ";
-        for (Student Student : aStudents) {
+        for (Student Student : students) {
             String emailsInRoster = Student.getEmail();
             if (!(emailsInRoster.contains("@")) || (emailsInRoster.contains(" ")) || !(emailsInRoster.contains("."))) {
                 System.out.println(invalidEmail + emailsInRoster);
@@ -82,12 +88,12 @@ public class Roster {
     
     //print student average grade
     public static void printAverageGrade(String studentId) {
-        for (Student student : aStudents) {
+        for (Student student : students) {
             if (student.getStudentId().equals(studentId)) {
                 double totalGrades = student.getGrade1() + student.getGrade2() + student.getGrade3();
                 double gradeAverage = totalGrades / 3;
                 
-                System.out.println("Student " +studentId+ " overall average grade is " +gradeAverage);
+                System.out.println("Student (" +studentId+ ") overall average grade is " +gradeAverage);
             }
         }
     }

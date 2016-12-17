@@ -7,10 +7,12 @@ package com.studentroster;
 //student class - includes student id, first name, last name, email, age, and grades
 public class Student {
     
+    //string values
     private String studentId;
     private String firstName;
     private String lastName;
     private String email;
+    //int values
     private int age;
     private int grade1;
     private int grade2;
@@ -36,7 +38,7 @@ public class Student {
         return studentId;
     }
 
-    private void setStudentId(String studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
     
@@ -103,7 +105,7 @@ public class Student {
         this.grades[2] = grade3;
     }
     
-    //print all the student data
+    //print all the student data for each student
     public void print() {
         String tab = "  ";
         String studentId = getStudentId();
@@ -111,10 +113,7 @@ public class Student {
         String lastName = getLastName();
         String email = getEmail();
         int age = getAge();
-        int grade1 = getGrade1();
-        int grade2 = getGrade2();
-        int grade3 = getGrade3();
-
+       
         System.out.println("Student ID: " +studentId+tab+ " First name: "
             +firstName+tab+ " Last name: " +lastName+tab+
             " Email: " +email+tab+ " Age: " +age);
